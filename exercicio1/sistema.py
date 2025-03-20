@@ -4,7 +4,7 @@ from exercicio1.lib.interface import *
 from exercicio1.lib.arquivo import *
 from time import sleep
 
-arq = 'Cursoemvideo.txt'
+arq = 'pessoas-cadastradas.txt'
 
 if not arquivoExiste(arq):
     criarArquivo(arq)

@@ -29,9 +29,15 @@ def lerArquivo(nome):
     else:
         cabeçalho('PESSOAS CADASTRADAS')
         for linha in a:
-            dado = linha.split(';')
-            dado[1] = dado[1].replace('\n', '')
-            print('f{dado[0]:<30}{dado[1]:>3} anos')
+            if isinstance(linha, str):
+                dado = linha.split(',')
+                if len(dado) > 1 and isinstance(dado[1], str):
+                    dado[1] = dado[1].replace('\n', '')
+                    print(f'{dado[0]:<30}{dado[1]:>3} anos')
+                else:
+                    print(f"Erro: linha mal formatada - {linha}")
+            else:
+                print(f"Erro: linha não é uma string - {linha}")
     finally:
         a.close()
 
